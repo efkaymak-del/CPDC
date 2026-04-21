@@ -1,0 +1,220 @@
+{
+  "meta": {
+    "version": "0.1.0",
+    "updated": "2026-04-21",
+    "languages": ["en", "tr", "el"]
+  },
+  "timeline": [
+    {
+      "date": "April 6, 2026",
+      "title": { "en": "Leaders Meet at UN Protected Area", "tr": "Liderler BM Koruma Bölgesi'nde Buluştu", "el": "Συνάντηση Ηγετών στην Προστατευόμενη Περιοχή ΟΗΕ" },
+      "desc": { "en": "UN Personal Envoy hosts the first meeting of the two Cypriot leaders in 2026. Discussions focus on confidence-building measures and the framework for resumed substantive negotiations.", "tr": "BM Kişisel Temsilcisi 2026'daki ilk lider toplantısına ev sahipliği yaptı. Görüşmeler güven artırıcı önlemler ve müzakere çerçevesine odaklandı.", "el": "Ο Προσωπικός Απεσταλμένος του ΟΗΕ φιλοξενεί την πρώτη συνάντηση των δύο ηγετών το 2026." },
+      "source": "UN OSASG",
+      "type": "un"
+    },
+    {
+      "date": "January 29, 2026",
+      "title": { "en": "CPDC Proposes Consultative Body Model", "tr": "CPDC Danışma Organı Modeli Önerdi", "el": "Το CPDC Προτείνει Μοντέλο Συμβουλευτικού Σώματος" },
+      "desc": { "en": "Researchers present expanded proposals for a consultative body at a UNFICYP-hosted event at Ledra Palace, drawing on the Ost-Belgien citizens' council model.", "tr": "Araştırmacılar Ledra Palace'ta danışma organı için genişletilmiş öneriler sundular. Ost-Belgien vatandaş konseyi modelinden yararlanıldı.", "el": "Ερευνητές παρουσιάζουν διευρυμένες προτάσεις για συμβουλευτικό σώμα στο Λήδρα Παλάς." },
+      "source": "UNFICYP / CPDC",
+      "type": "un"
+    },
+    {
+      "date": "January 2026",
+      "title": { "en": "UNFICYP Mandate Renewed", "tr": "UNFICYP Mandası Yenilendi", "el": "Ανανέωση Εντολής UNFICYP" },
+      "desc": { "en": "Security Council renews UNFICYP mandate. Resolution notes the leaders' common understanding on four additional measures including the consultative body.", "tr": "Güvenlik Konseyi UNFICYP mandasını yeniledi. Karar, danışma organı dahil dört ek önlemi kaydetti.", "el": "Το Συμβούλιο Ασφαλείας ανανεώνει την εντολή UNFICYP." },
+      "source": "UN Security Council",
+      "type": "un"
+    },
+    {
+      "date": "December 14, 2025",
+      "title": { "en": "Second Leader Meeting", "tr": "İkinci Lider Toplantısı", "el": "Δεύτερη Συνάντηση Ηγετών" },
+      "desc": { "en": "Christodoulides and Erhürman meet for the second time. Discussions cover substance, confidence-building measures, and UN resolutions.", "tr": "Hristodulidis ve Erhürman ikinci kez bir araya geldi.", "el": "Χριστοδουλίδης και Ερχουρμάν συναντώνται για δεύτερη φορά." },
+      "source": "UN / Both Sides",
+      "type": "un"
+    },
+    {
+      "date": "November 20, 2025",
+      "title": { "en": "First Christodoulides-Erhürman Meeting", "tr": "İlk Hristodulidis-Erhürman Toplantısı", "el": "Πρώτη Συνάντηση Χριστοδουλίδη-Ερχουρμάν" },
+      "desc": { "en": "The first encounter since Erhürman's election. They agree to hold further joint sessions and maintain regular contact.", "tr": "Erhürman'ın seçilmesinden bu yana ilk buluşma. Ortak oturumlar ve düzenli iletişim kararı.", "el": "Η πρώτη συνάντηση μετά την εκλογή Ερχουρμάν." },
+      "source": "UN Mediation",
+      "type": "un"
+    },
+    {
+      "date": "October 19, 2025",
+      "title": { "en": "Erhürman Elected Turkish Cypriot Leader", "tr": "Erhürman Kıbrıs Türk Lideri Seçildi", "el": "Εκλογή Ερχουρμάν" },
+      "desc": { "en": "Tufan Erhürman of the CTP defeats incumbent Ersin Tatar, signaling a shift toward re-engagement with the peace process.", "tr": "CTP'den Tufan Erhürman, Ersin Tatar'ı yenerek barış süreciyle yeniden angajmana sinyal verdi.", "el": "Ο Ερχουρμάν νικά τον Τατάρ, σηματοδοτώντας στροφή προς επανεμπλοκή." },
+      "source": "TRNC Election",
+      "type": "tc"
+    },
+    {
+      "date": "September 27, 2025",
+      "title": { "en": "UN Secretary-General Trilateral Meeting", "tr": "BM Genel Sekreteri Üçlü Toplantı", "el": "Τριμερής Συνάντηση ΓΓ ΟΗΕ" },
+      "desc": { "en": "Secretary-General Guterres convenes a trilateral meeting with both Cypriot leaders at UN Headquarters during the General Assembly.", "tr": "Genel Sekreter Guterres, Genel Kurul sırasında her iki liderle üçlü toplantı düzenledi.", "el": "Τριμερής συνάντηση στα κεντρικά του ΟΗΕ κατά τη Γενική Συνέλευση." },
+      "source": "UN SG Office",
+      "type": "un"
+    },
+    {
+      "date": "July 17, 2025",
+      "title": { "en": "Informal Meeting — Consultative Body Agreed", "tr": "Gayriresmi Toplantı — Danışma Organı Kabul Edildi", "el": "Άτυπη Συνάντηση — Συμφωνία Συμβουλευτικού Σώματος" },
+      "desc": { "en": "The two sides reach a common understanding on establishing a consultative body for civil society, among other confidence-building measures.", "tr": "İki taraf sivil toplum için danışma organı kurulması konusunda ortak anlayışa vardı.", "el": "Κοινή συνεννόηση για δημιουργία συμβουλευτικού σώματος." },
+      "source": "UN SG Office",
+      "type": "un"
+    },
+    {
+      "date": "March 17–18, 2025",
+      "title": { "en": "Geneva Informal Meeting", "tr": "Cenevre Gayriresmi Toplantısı", "el": "Άτυπη Συνάντηση Γενεύης" },
+      "desc": { "en": "Six trust-building initiatives produced. Personal Envoy Holguín Cuéllar facilitates. Four of six measures subsequently completed.", "tr": "Altı güven artırıcı girişim üretildi. Dördü tamamlandı.", "el": "Έξι πρωτοβουλίες οικοδόμησης εμπιστοσύνης. Τέσσερα ολοκληρώθηκαν." },
+      "source": "UN OSASG",
+      "type": "un"
+    }
+  ],
+  "issues": {
+    "governance": {
+      "label": { "en": "Governance Model", "tr": "Yönetim Modeli", "el": "Μοντέλο Διακυβέρνησης" },
+      "axes": {
+        "top": { "en": "Stronger Central Government", "tr": "Daha Güçlü Merkezi Yönetim", "el": "Ισχυρότερη Κεντρική Κυβέρνηση" },
+        "bottom": { "en": "Looser Association / Two States", "tr": "Gevşek Birlik / İki Devlet", "el": "Χαλαρότερη Ένωση / Δύο Κράτη" },
+        "left": { "en": "More Integration", "tr": "Daha Fazla Entegrasyon", "el": "Περισσότερη Ενοποίηση" },
+        "right": { "en": "More Separation", "tr": "Daha Fazla Ayrışma", "el": "Περισσότερος Διαχωρισμός" }
+      },
+      "clusters": [
+        { "cx": 0.25, "cy": 0.3, "spread": 0.12, "count": 35, "community": "gc" },
+        { "cx": 0.35, "cy": 0.45, "spread": 0.08, "count": 15, "community": "gc" },
+        { "cx": 0.65, "cy": 0.55, "spread": 0.1, "count": 20, "community": "tc" },
+        { "cx": 0.75, "cy": 0.7, "spread": 0.12, "count": 25, "community": "tc" },
+        { "cx": 0.5, "cy": 0.5, "spread": 0.15, "count": 10, "community": "other" },
+        { "cx": 0.45, "cy": 0.4, "spread": 0.06, "count": 8, "community": "tc" }
+      ]
+    },
+    "territory": {
+      "label": { "en": "Territory", "tr": "Toprak", "el": "Έδαφος" },
+      "axes": {
+        "top": { "en": "Significant Territorial Adjustment", "tr": "Önemli Toprak Düzenlemesi", "el": "Σημαντική Εδαφική Προσαρμογή" },
+        "bottom": { "en": "Current Lines Maintained", "tr": "Mevcut Hatlar Korunur", "el": "Διατήρηση Σημερινών Γραμμών" },
+        "left": { "en": "Return Priority", "tr": "Dönüş Önceliği", "el": "Προτεραιότητα Επιστροφής" },
+        "right": { "en": "Compensation Priority", "tr": "Tazminat Önceliği", "el": "Προτεραιότητα Αποζημίωσης" }
+      },
+      "clusters": [
+        { "cx": 0.2, "cy": 0.25, "spread": 0.1, "count": 40, "community": "gc" },
+        { "cx": 0.7, "cy": 0.6, "spread": 0.15, "count": 30, "community": "tc" },
+        { "cx": 0.4, "cy": 0.5, "spread": 0.1, "count": 12, "community": "other" },
+        { "cx": 0.55, "cy": 0.35, "spread": 0.08, "count": 8, "community": "gc" }
+      ]
+    },
+    "security": {
+      "label": { "en": "Security & Guarantees", "tr": "Güvenlik ve Garantiler", "el": "Ασφάλεια και Εγγυήσεις" },
+      "axes": {
+        "top": { "en": "Full Demilitarization", "tr": "Tam Askerden Arındırma", "el": "Πλήρης Αποστρατικοποίηση" },
+        "bottom": { "en": "Maintain Security Architecture", "tr": "Güvenlik Yapısını Koru", "el": "Διατήρηση Αρχιτεκτονικής Ασφαλείας" },
+        "left": { "en": "EU/International Guarantees", "tr": "AB/Uluslararası Garantiler", "el": "Εγγυήσεις ΕΕ/Διεθνείς" },
+        "right": { "en": "Existing Treaty Guarantees", "tr": "Mevcut Antlaşma Garantileri", "el": "Υφιστάμενες Εγγυήσεις Συνθηκών" }
+      },
+      "clusters": [
+        { "cx": 0.2, "cy": 0.3, "spread": 0.12, "count": 35, "community": "gc" },
+        { "cx": 0.75, "cy": 0.65, "spread": 0.1, "count": 30, "community": "tc" },
+        { "cx": 0.4, "cy": 0.5, "spread": 0.12, "count": 15, "community": "other" },
+        { "cx": 0.35, "cy": 0.55, "spread": 0.08, "count": 10, "community": "tc" }
+      ]
+    },
+    "property": {
+      "label": { "en": "Property", "tr": "Mülkiyet", "el": "Ιδιοκτησία" },
+      "axes": {
+        "top": { "en": "Full Restitution", "tr": "Tam İade", "el": "Πλήρης Αποκατάσταση" },
+        "bottom": { "en": "Full Compensation", "tr": "Tam Tazminat", "el": "Πλήρης Αποζημίωση" },
+        "left": { "en": "Individual Rights Priority", "tr": "Bireysel Haklar Önceliği", "el": "Προτεραιότητα Ατομικών Δικαιωμάτων" },
+        "right": { "en": "Community Stability Priority", "tr": "Toplumsal İstikrar Önceliği", "el": "Προτεραιότητα Κοινοτικής Σταθερότητας" }
+      },
+      "clusters": [
+        { "cx": 0.2, "cy": 0.2, "spread": 0.1, "count": 38, "community": "gc" },
+        { "cx": 0.7, "cy": 0.7, "spread": 0.12, "count": 28, "community": "tc" },
+        { "cx": 0.45, "cy": 0.45, "spread": 0.15, "count": 15, "community": "other" }
+      ]
+    },
+    "eu": {
+      "label": { "en": "EU & International", "tr": "AB ve Uluslararası", "el": "ΕΕ και Διεθνή" },
+      "axes": {
+        "top": { "en": "Full Acquis Immediately", "tr": "Tam Müktesebat Derhal", "el": "Πλήρες Κεκτημένο Αμέσως" },
+        "bottom": { "en": "Extended Transition / Derogations", "tr": "Uzun Geçiş / İstisnalar", "el": "Εκτεταμένη Μεταβατική Περίοδος" },
+        "left": { "en": "EU as Solution Framework", "tr": "Çözüm Çerçevesi Olarak AB", "el": "ΕΕ ως Πλαίσιο Λύσης" },
+        "right": { "en": "EU as Complicating Factor", "tr": "Karmaşıklaştırıcı Faktör Olarak AB", "el": "ΕΕ ως Περιπλέκων Παράγοντας" }
+      },
+      "clusters": [
+        { "cx": 0.25, "cy": 0.25, "spread": 0.12, "count": 35, "community": "gc" },
+        { "cx": 0.6, "cy": 0.6, "spread": 0.15, "count": 25, "community": "tc" },
+        { "cx": 0.7, "cy": 0.35, "spread": 0.08, "count": 12, "community": "tc" },
+        { "cx": 0.4, "cy": 0.45, "spread": 0.1, "count": 10, "community": "other" }
+      ]
+    },
+    "identity": {
+      "label": { "en": "Identity & Recognition", "tr": "Kimlik ve Tanınma", "el": "Ταυτότητα και Αναγνώριση" },
+      "axes": {
+        "top": { "en": "Cypriot Identity Primary", "tr": "Kıbrıslı Kimliği Öncelikli", "el": "Κυπριακή Ταυτότητα Πρωταρχική" },
+        "bottom": { "en": "Ethnic/National Identity Primary", "tr": "Etnik/Ulusal Kimlik Öncelikli", "el": "Εθνική Ταυτότητα Πρωταρχική" },
+        "left": { "en": "Recognition Through Unity", "tr": "Birlik Yoluyla Tanınma", "el": "Αναγνώριση μέσω Ενότητας" },
+        "right": { "en": "Recognition Through Sovereignty", "tr": "Egemenlik Yoluyla Tanınma", "el": "Αναγνώριση μέσω Κυριαρχίας" }
+      },
+      "clusters": [
+        { "cx": 0.35, "cy": 0.3, "spread": 0.15, "count": 25, "community": "gc" },
+        { "cx": 0.2, "cy": 0.65, "spread": 0.1, "count": 20, "community": "gc" },
+        { "cx": 0.7, "cy": 0.6, "spread": 0.12, "count": 20, "community": "tc" },
+        { "cx": 0.6, "cy": 0.35, "spread": 0.08, "count": 15, "community": "tc" },
+        { "cx": 0.45, "cy": 0.25, "spread": 0.1, "count": 12, "community": "other" }
+      ]
+    }
+  },
+  "convergences": [
+    { "score": 78, "level": "high", "title": { "en": "Economic Integration Benefits", "tr": "Ekonomik Entegrasyon Faydaları", "el": "Οφέλη Οικονομικής Ολοκλήρωσης" }, "desc": { "en": "Strong cross-communal agreement that economic cooperation would benefit both communities, regardless of the political framework.", "tr": "Ekonomik işbirliğinin her iki topluma da fayda sağlayacağı konusunda güçlü toplumlar arası mutabakat.", "el": "Ισχυρή διακοινοτική συμφωνία ότι η οικονομική συνεργασία θα ωφελήσει και τις δύο κοινότητες." } },
+    { "score": 72, "level": "high", "title": { "en": "Freedom of Movement", "tr": "Hareket Özgürlüğü", "el": "Ελευθερία Κυκλοφορίας" }, "desc": { "en": "High convergence on unrestricted movement across the island as fundamental to any settlement.", "tr": "Ada genelinde sınırsız hareketin temel bir unsur olduğuna dair yüksek yakınsama.", "el": "Υψηλή σύγκλιση στη σημασία της ελεύθερης κυκλοφορίας." } },
+    { "score": 67, "level": "high", "title": { "en": "Process Fatigue", "tr": "Süreç Yorgunluğu", "el": "Κούραση Διαδικασίας" }, "desc": { "en": "Strong cross-communal sense that formal negotiations have failed for decades and new approaches are needed.", "tr": "Resmi müzakerelerin onlarca yıldır sonuç vermediğine dair güçlü toplumlar arası his.", "el": "Αίσθηση ότι η επίσημη διαδικασία έχει αποτύχει εδώ και δεκαετίες." } },
+    { "score": 54, "level": "medium", "title": { "en": "Security Concerns Are Mutual", "tr": "Güvenlik Endişeleri Karşılıklı", "el": "Αμοιβαίες Ανησυχίες Ασφαλείας" }, "desc": { "en": "Both communities express security anxieties framed differently — GC: Turkey's military; TC: demographic vulnerability. The underlying concern converges.", "tr": "Her iki toplum da farklı çerçevelerde güvenlik kaygıları ifade eder. Temel kaygı yakınsar.", "el": "Και οι δύο κοινότητες εκφράζουν ανησυχίες ασφαλείας. Η υποκείμενη ανησυχία συγκλίνει." } },
+    { "score": 31, "level": "low", "title": { "en": "Governance Model", "tr": "Yönetim Modeli", "el": "Μοντέλο Διακυβέρνησης" }, "desc": { "en": "Significant divergence on political structure. However, a subset of both communities expresses openness to creative models beyond BBF or two-state.", "tr": "Siyasi yapıda önemli farklılık. Ancak her iki toplumun bir alt kümesi yaratıcı modellere açık.", "el": "Σημαντική απόκλιση, αλλά ένα υποσύνολο εκφράζει δεκτικότητα σε δημιουργικά μοντέλα." } }
+  ],
+  "mirror": {
+    "gc": {
+      "label": { "en": "Greek Cypriots discussing Turkish Cypriots", "tr": "Kıbrıslı Rumlar Kıbrıslı Türkleri tartışıyor", "el": "Ελληνοκύπριοι συζητούν για Τουρκοκύπριους" },
+      "threads": [
+        {
+          "text": { "en": "Dominant narrative: Turkish Cypriots are seen sympathetically as individuals but political leadership was viewed as an extension of Ankara. Erhürman's election introduced cautious optimism.", "tr": "Baskın anlatı: Kıbrıslı Türkler bireysel olarak sempatiyle karşılanır, siyasi liderlik Ankara'nın uzantısı olarak görülmüştür. Erhürman temkinli iyimserlik getirdi.", "el": "Κυρίαρχη αφήγηση: Συμπάθεια ως άτομα, αλλά η ηγεσία θεωρούνταν προέκταση Άγκυρας. Ο Ερχουρμάν έφερε αισιοδοξία." },
+          "sentiment": "40% skeptical · 30% cautious · 30% hopeful",
+          "colors": [40, 70, 100]
+        },
+        {
+          "text": { "en": "Recurring concern: 'Even if we agree, Turkey will veto.' Fatalism coexists with genuine desire for contact and normalcy.", "tr": "'Anlaşsak bile Türkiye veto edecek.' Kadercilik, temas ve normallik isteğiyle bir arada var.", "el": "'Ακόμα κι αν συμφωνήσουμε, η Τουρκία θα θέσει βέτο.' Μοιρολατρισμός με επιθυμία επαφής." },
+          "sentiment": "55% pessimistic · 45% ambivalent",
+          "colors": [55, 100]
+        }
+      ],
+      "insight": { "en": "A significant gap exists between private and public discourse. In intracommunal settings, Greek Cypriots express more willingness to accept power-sharing than they would in a bicommunal forum. Social stigma around 'conceding too much' suppresses moderate positions.", "tr": "Özel ve kamusal söylem arasında önemli uçurum var. Toplum içi ortamlarda Kıbrıslı Rumlar daha fazla güç paylaşımı istekliliği gösterir. 'Çok fazla taviz vermek' damgası ılımlı pozisyonları bastırır.", "el": "Σημαντικό χάσμα δημόσιου-ιδιωτικού λόγου. Ενδοκοινοτικά εκφράζεται μεγαλύτερη ευελιξία." }
+    },
+    "tc": {
+      "label": { "en": "Turkish Cypriots discussing Greek Cypriots", "tr": "Kıbrıslı Türkler Kıbrıslı Rumları tartışıyor", "el": "Τουρκοκύπριοι συζητούν για Ελληνοκύπριους" },
+      "threads": [
+        {
+          "text": { "en": "Dominant narrative: Greek Cypriots are perceived as unwilling to accept Turkish Cypriots as political equals. The 2004 Annan Plan referendum is frequently cited — 'we said yes, they said no, and we were punished for it.'", "tr": "Baskın anlatı: Kıbrıslı Rumların siyasi eşitliği kabul etmeye isteksiz olduğu algısı. 2004 referandumu sıkça alıntılanır.", "el": "Κυρίαρχη αφήγηση: Απροθυμία αποδοχής πολιτικής ισότητας. Το δημοψήφισμα 2004 αναφέρεται συχνά." },
+          "sentiment": "50% resentful · 30% resigned · 20% open",
+          "colors": [50, 80, 100]
+        },
+        {
+          "text": { "en": "Under-reported: Growing frustration not with Greek Cypriots but with Turkey's increasing influence. 'We didn't fight for independence from one side to become dependent on another.' Politically dangerous to express openly.", "tr": "Az bildirilen: Artan hayal kırıklığı Kıbrıslı Rumlara değil Türkiye'nin artan etkisine yönelik. 'Bir taraftan bağımsızlık için mücadele edip diğerine bağımlı olmak için değil.'", "el": "Υπο-αναφερόμενη: Αυξανόμενη απογοήτευση με την επιρροή Τουρκίας. Πολιτικά επικίνδυνη." },
+          "sentiment": "45% defiant · 35% anxious · 20% hopeful",
+          "colors": [45, 80, 100]
+        }
+      ],
+      "insight": { "en": "Turkish Cypriot discourse reveals a three-way split: those who prefer two states, those who prefer federation with equality guarantees, and a growing cohort expressing fatigue with the entire framework debate. The third group is the fastest-growing and least represented in negotiations.", "tr": "Üçlü bölünme: iki devleti tercih edenler, eşitlik güvenceli federasyonu isteyenler ve çerçeve tartışmasından yorulanlar. Üçüncü grup en hızlı büyüyen ve en az temsil edilen.", "el": "Τριμερής διάσπαση: δύο κράτη, ομοσπονδία με εγγυήσεις, ή κούραση. Η τρίτη ομάδα αυξάνεται ταχύτατα." }
+    },
+    "cross_insight": { "en": "Both communities exhibit a 'public-private gap' — positions expressed within the community are more flexible than those expressed across the divide. This suggests social pressure within each community, not fundamental incompatibility between them, may be the primary obstacle to settlement.", "tr": "Her iki toplum da 'kamusal-özel uçurumu' sergiler — toplum içinde ifade edilen pozisyonlar karşı tarafa ifade edilenlerden daha esnektir. Topluluklar arasındaki uyumsuzluktan ziyade her toplum içindeki sosyal baskı birincil engel olabilir.", "el": "Και οι δύο κοινότητες εμφανίζουν «χάσμα δημόσιου-ιδιωτικού». Η κοινωνική πίεση εντός κάθε κοινότητας μπορεί να είναι το κύριο εμπόδιο." }
+  },
+  "ui": {
+    "status_text": { "en": "Following Tufan Erhürman's election as Turkish Cypriot leader in October 2025, formal engagement has resumed. The leaders have met multiple times under UN auspices, most recently on April 6, 2026. A consultative body for civil society was agreed in principle in July 2025 but terms of reference remain under discussion.", "tr": "Tufan Erhürman'ın Ekim 2025'te seçilmesinin ardından resmi temas yeniden başladı. Liderler BM himayesinde birçok kez görüştü. Danışma organı prensipte kabul edildi ancak görev tanımı görüşülüyor.", "el": "Μετά την εκλογή Ερχουρμάν τον Οκτώβριο 2025, η επαφή επαναλήφθηκε. Οι ηγέτες συναντήθηκαν πολλές φορές. Το συμβουλευτικό σώμα συμφωνήθηκε κατ' αρχήν." },
+    "nav": {
+      "home": { "en": "Home", "tr": "Ana Sayfa", "el": "Αρχική" },
+      "process": { "en": "Peace Process", "tr": "Barış Süreci", "el": "Ειρηνευτική Διαδικασία" },
+      "landscape": { "en": "Opinion Landscape", "tr": "Görüş Haritası", "el": "Χάρτης Απόψεων" },
+      "participate": { "en": "Participate", "tr": "Katıl", "el": "Συμμετοχή" },
+      "mirror": { "en": "Community Mirror", "tr": "Toplum Aynası", "el": "Κοινοτικός Καθρέφτης" },
+      "cafe": { "en": "World Café Engine", "tr": "Dünya Kafe Motoru", "el": "Μηχανή World Café" },
+      "methodology": { "en": "Methodology", "tr": "Metodoloji", "el": "Μεθοδολογία" }
+    }
+  }
+}
