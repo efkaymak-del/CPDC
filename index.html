@@ -1,0 +1,1767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EIRINI — Cyprus Civic Platform</title>
+    <style>
+        :root {
+            --copper: #B87333;
+            --copper-light: #D4956B;
+            --copper-dark: #8B5A2B;
+            --sand: #F5E6D3;
+            --sand-light: #FFF8F0;
+            --olive: #708238;
+            --olive-light: #8A9A5B;
+            --sea: #2E6B8A;
+            --sea-light: #4A90A8;
+            --sea-dark: #1B4D6E;
+            --charcoal: #2C2C2C;
+            --warm-gray: #6B6560;
+            --light-gray: #E8E0D8;
+            --white: #FFFFFF;
+            --red-soft: #C45B5B;
+            --green-soft: #5B8C5A;
+            --amber: #D4A04A;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--sand-light);
+            color: var(--charcoal);
+            line-height: 1.6;
+        }
+
+        /* ========== TOP BAR ========== */
+        .top-bar {
+            background: var(--charcoal);
+            padding: 8px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .platform-id {
+            color: var(--copper-light);
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+
+        .lang-switcher { display: flex; gap: 4px; }
+
+        .lang-btn {
+            background: transparent;
+            border: 1px solid var(--warm-gray);
+            color: var(--light-gray);
+            padding: 4px 12px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: all 0.2s;
+        }
+
+        .lang-btn.active, .lang-btn:hover {
+            background: var(--copper);
+            border-color: var(--copper);
+            color: var(--white);
+        }
+
+        /* ========== NAVIGATION ========== */
+        nav {
+            background: var(--white);
+            border-bottom: 2px solid var(--copper);
+            padding: 0 24px;
+            display: flex;
+            gap: 0;
+            overflow-x: auto;
+        }
+
+        .nav-tab {
+            padding: 14px 20px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--warm-gray);
+            border-bottom: 3px solid transparent;
+            border-top: none; border-left: none; border-right: none;
+            transition: all 0.2s;
+            white-space: nowrap;
+            background: none;
+        }
+
+        .nav-tab:hover { color: var(--charcoal); background: var(--sand); }
+
+        .nav-tab.active {
+            color: var(--copper-dark);
+            border-bottom-color: var(--copper);
+            font-weight: 600;
+        }
+
+        /* ========== SECTIONS ========== */
+        .section {
+            display: none;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 32px 24px;
+        }
+
+        .section.active { display: block; }
+
+        /* ========== HERO ========== */
+        .hero {
+            text-align: center;
+            padding: 60px 24px;
+            background: linear-gradient(135deg, var(--sea-dark) 0%, var(--sea) 50%, var(--olive) 100%);
+            color: var(--white);
+            margin: -32px -24px 32px -24px;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            font-weight: 300;
+            letter-spacing: 6px;
+            margin-bottom: 16px;
+        }
+
+        .hero h1 span { font-weight: 700; color: var(--copper-light); }
+
+        .hero-subtitle {
+            font-size: 16px;
+            opacity: 0.85;
+            max-width: 620px;
+            margin: 0 auto 24px;
+            line-height: 1.8;
+        }
+
+        .hero-principles {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 32px;
+        }
+
+        .principle-badge {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+
+        /* ========== CARDS ========== */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-top: 24px;
+        }
+
+        .about-card {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 28px;
+            border-left: 4px solid var(--copper);
+        }
+
+        .about-card h3 {
+            color: var(--copper-dark);
+            font-size: 16px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .about-card p {
+            color: var(--warm-gray);
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        /* ========== STATUS / TIMELINE ========== */
+        .status-banner {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 24px;
+            margin-bottom: 24px;
+            border-left: 4px solid var(--sea);
+        }
+
+        .status-banner h2 { color: var(--sea-dark); font-size: 20px; margin-bottom: 8px; }
+
+        .date-tag {
+            background: var(--sea);
+            color: white;
+            padding: 2px 10px;
+            border-radius: 10px;
+            font-size: 11px;
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+
+        .timeline { position: relative; padding-left: 32px; }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 8px; top: 0; bottom: 0;
+            width: 2px;
+            background: var(--copper-light);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 24px;
+            background: var(--white);
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -28px; top: 24px;
+            width: 12px; height: 12px;
+            background: var(--copper);
+            border-radius: 50%;
+            border: 2px solid var(--sand-light);
+        }
+
+        .timeline-item .tl-date {
+            font-size: 12px;
+            color: var(--copper);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .timeline-item h3 { font-size: 16px; margin: 6px 0; color: var(--charcoal); }
+        .timeline-item p { font-size: 14px; color: var(--warm-gray); line-height: 1.7; }
+
+        .source-tag {
+            display: inline-block;
+            font-size: 11px;
+            padding: 2px 8px;
+            border-radius: 3px;
+            margin-top: 8px;
+            background: var(--sand);
+            color: var(--warm-gray);
+        }
+
+        .source-tag.gc { border-left: 3px solid var(--sea); }
+        .source-tag.tc { border-left: 3px solid var(--copper); }
+        .source-tag.un { border-left: 3px solid var(--olive); }
+
+        /* ========== OPINION LANDSCAPE ========== */
+        .landscape-intro {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 24px;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .landscape-intro h2 { color: var(--copper-dark); margin-bottom: 8px; }
+        .landscape-intro p { color: var(--warm-gray); font-size: 14px; max-width: 700px; margin: 0 auto; }
+
+        .issue-tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .issue-tab {
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 1px solid var(--light-gray);
+            background: var(--white);
+            cursor: pointer;
+            font-size: 13px;
+            color: var(--warm-gray);
+            transition: all 0.2s;
+        }
+
+        .issue-tab:hover, .issue-tab.active {
+            background: var(--copper);
+            color: var(--white);
+            border-color: var(--copper);
+        }
+
+        .landscape-container {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+
+        .landscape-canvas-wrapper {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            background: var(--sand-light);
+            border-radius: 8px;
+            border: 1px solid var(--light-gray);
+            overflow: hidden;
+        }
+
+        .landscape-canvas-wrapper canvas { width: 100%; height: 100%; }
+
+        .axis-label {
+            position: absolute;
+            font-size: 11px;
+            color: var(--warm-gray);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .axis-label.left { left: 8px; top: 50%; transform: translateY(-50%) rotate(-90deg); }
+        .axis-label.right { right: 8px; top: 50%; transform: translateY(-50%) rotate(90deg); }
+        .axis-label.top { top: 8px; left: 50%; transform: translateX(-50%); }
+        .axis-label.bottom { bottom: 8px; left: 50%; transform: translateX(-50%); }
+
+        .landscape-legend {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-top: 16px;
+            font-size: 12px;
+        }
+
+        .legend-item { display: flex; align-items: center; gap: 6px; }
+        .legend-dot { width: 10px; height: 10px; border-radius: 50%; }
+        .legend-dot.gc { background: var(--sea); }
+        .legend-dot.tc { background: var(--copper); }
+        .legend-dot.other { background: var(--olive); }
+
+        /* ========== CONVERGENCE ========== */
+        .convergence-section {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 24px;
+            margin-top: 24px;
+        }
+
+        .convergence-section h3 { color: var(--olive); margin-bottom: 16px; }
+
+        .convergence-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px;
+            background: var(--sand-light);
+            border-radius: 8px;
+            margin-bottom: 12px;
+        }
+
+        .convergence-score {
+            width: 56px; height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--white);
+            flex-shrink: 0;
+        }
+
+        .convergence-score.high { background: var(--green-soft); }
+        .convergence-score.medium { background: var(--amber); }
+        .convergence-score.low { background: var(--red-soft); }
+
+        .convergence-detail h4 { font-size: 14px; color: var(--charcoal); margin-bottom: 4px; }
+        .convergence-detail p { font-size: 13px; color: var(--warm-gray); }
+
+        /* ========== PARTICIPATE ========== */
+        .participate-panel {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 32px;
+            margin-bottom: 24px;
+        }
+
+        .participate-panel h3 { color: var(--copper-dark); margin-bottom: 16px; font-size: 18px; }
+
+        .prompt-card {
+            background: var(--sand);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 16px;
+        }
+
+        .prompt-card .prompt-question {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--charcoal);
+            margin-bottom: 12px;
+        }
+
+        .prompt-card .prompt-context {
+            font-size: 13px;
+            color: var(--warm-gray);
+            margin-bottom: 16px;
+            font-style: italic;
+        }
+
+        .slider-group { margin-bottom: 20px; }
+
+        .slider-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .slider-row span { font-size: 11px; color: var(--warm-gray); min-width: 80px; }
+        .slider-row span:last-child { text-align: right; }
+
+        input[type="range"] {
+            flex: 1;
+            -webkit-appearance: none;
+            height: 6px;
+            border-radius: 3px;
+            background: linear-gradient(to right, var(--sea), var(--light-gray), var(--copper));
+            outline: none;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 18px; height: 18px;
+            border-radius: 50%;
+            background: var(--charcoal);
+            cursor: pointer;
+            border: 2px solid var(--white);
+            box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+        }
+
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--light-gray);
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 14px;
+            resize: vertical;
+            min-height: 80px;
+            background: var(--white);
+        }
+
+        textarea:focus { outline: none; border-color: var(--copper); }
+
+        .community-select {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .community-option {
+            flex: 1;
+            min-width: 120px;
+            padding: 12px;
+            text-align: center;
+            border: 2px solid var(--light-gray);
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 500;
+            transition: all 0.2s;
+            background: var(--white);
+        }
+
+        .community-option:hover { border-color: var(--copper-light); }
+        .community-option.selected { border-color: var(--copper); background: var(--sand); }
+
+        .submit-btn {
+            background: var(--copper);
+            color: var(--white);
+            border: none;
+            padding: 12px 32px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            letter-spacing: 1px;
+        }
+
+        .submit-btn:hover { background: var(--copper-dark); }
+
+        .response-placed {
+            display: none;
+            text-align: center;
+            padding: 32px;
+        }
+
+        .response-placed.show { display: block; }
+        .response-placed .checkmark { font-size: 48px; color: var(--green-soft); margin-bottom: 12px; }
+        .response-placed h3 { color: var(--charcoal); margin-bottom: 8px; }
+        .response-placed p { color: var(--warm-gray); font-size: 14px; }
+
+        /* ========== MIRROR ========== */
+        .mirror-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .mirror-panel {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 24px;
+            min-height: 300px;
+        }
+
+        .mirror-panel.gc-space { border-top: 4px solid var(--sea); }
+        .mirror-panel.tc-space { border-top: 4px solid var(--copper); }
+        .mirror-panel h3 { font-size: 16px; margin-bottom: 4px; }
+
+        .mirror-subtitle {
+            font-size: 12px;
+            color: var(--warm-gray);
+            margin-bottom: 16px;
+            font-style: italic;
+        }
+
+        .mirror-thread {
+            background: var(--sand-light);
+            border-radius: 6px;
+            padding: 14px;
+            margin-bottom: 10px;
+            border-left: 3px solid var(--light-gray);
+        }
+
+        .mirror-thread .thread-text { font-size: 13px; color: var(--charcoal); line-height: 1.6; }
+        .mirror-thread .thread-meta { font-size: 11px; color: var(--warm-gray); margin-top: 6px; }
+
+        .mirror-thread .sentiment-bar {
+            height: 3px;
+            border-radius: 2px;
+            margin-top: 8px;
+        }
+
+        .mirror-insight {
+            background: var(--sand);
+            border-radius: 6px;
+            padding: 14px;
+            margin-top: 16px;
+            border: 1px dashed var(--copper-light);
+        }
+
+        .mirror-insight h4 {
+            font-size: 12px;
+            color: var(--copper);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+        }
+
+        .mirror-insight p { font-size: 13px; color: var(--warm-gray); line-height: 1.6; }
+
+        .cross-mirror {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 24px;
+            margin-top: 24px;
+        }
+
+        .cross-mirror h3 { color: var(--olive); margin-bottom: 12px; }
+
+        /* ========== WORLD CAFE ENGINE ========== */
+        .cafe-container {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 24px;
+            background: var(--white);
+            border-radius: 8px;
+            padding: 24px;
+            margin-top: 24px;
+        }
+
+        .cafe-controls {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .cafe-canvas-wrapper {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            background: var(--sand-light);
+            border-radius: 8px;
+            border: 1px solid var(--light-gray);
+            overflow: hidden;
+        }
+
+        .cafe-canvas-wrapper canvas { width: 100%; height: 100%; }
+
+        .phase-card {
+            padding: 16px;
+            border-radius: 6px;
+            border: 1px solid var(--light-gray);
+            background: var(--white);
+            transition: all 0.3s;
+            opacity: 0.5;
+        }
+
+        .phase-card.active {
+            opacity: 1;
+            border-color: var(--copper);
+            background: var(--sand);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .phase-card.completed {
+            opacity: 0.7;
+            border-color: var(--green-soft);
+            background: rgba(91, 140, 90, 0.05);
+        }
+
+        .phase-card h4 {
+            color: var(--charcoal);
+            margin-bottom: 8px;
+            font-size: 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .phase-card p { font-size: 12px; color: var(--warm-gray); line-height: 1.6; }
+
+        .phase-status {
+            font-size: 11px;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-weight: 600;
+        }
+
+        .phase-status.active { background: var(--copper); color: var(--white); }
+        .phase-status.waiting { background: var(--light-gray); color: var(--warm-gray); }
+        .phase-status.done { background: var(--green-soft); color: var(--white); }
+
+        .sim-btn {
+            background: var(--sea);
+            color: var(--white);
+            border: none;
+            padding: 12px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+            font-size: 13px;
+        }
+
+        .sim-btn:hover { background: var(--sea-dark); }
+        .sim-btn.reset { background: var(--warm-gray); }
+        .sim-btn.reset:hover { background: var(--charcoal); }
+
+        .sim-btn-row {
+            display: flex;
+            gap: 8px;
+        }
+
+        .sim-btn-row .sim-btn { flex: 1; }
+
+        .cafe-legend {
+            display: flex;
+            gap: 16px;
+            padding: 12px;
+            background: var(--sand);
+            border-radius: 6px;
+            font-size: 11px;
+            color: var(--warm-gray);
+            flex-wrap: wrap;
+        }
+
+        .cafe-legend-item { display: flex; align-items: center; gap: 4px; }
+
+        .cafe-legend-dot {
+            width: 10px; height: 10px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        /* ========== METHODOLOGY ========== */
+        .method-card {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 24px;
+            margin-bottom: 16px;
+        }
+
+        .method-card h3 {
+            color: var(--charcoal);
+            font-size: 16px;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--sand);
+        }
+
+        .method-card p {
+            font-size: 14px;
+            color: var(--warm-gray);
+            line-height: 1.8;
+            margin-bottom: 12px;
+        }
+
+        .method-highlight {
+            background: var(--sand);
+            padding: 16px;
+            border-radius: 6px;
+            border-left: 4px solid var(--olive);
+            font-size: 14px;
+            color: var(--charcoal);
+            line-height: 1.7;
+            margin-top: 12px;
+        }
+
+        /* ========== NOTIFICATION ========== */
+        .notification {
+            position: fixed;
+            bottom: 24px; right: 24px;
+            background: var(--charcoal);
+            color: var(--white);
+            padding: 16px 24px;
+            border-radius: 8px;
+            font-size: 14px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.4s;
+            z-index: 2000;
+            max-width: 360px;
+        }
+
+        .notification.show { transform: translateY(0); opacity: 1; }
+
+        /* ========== FOOTER ========== */
+        footer {
+            background: var(--charcoal);
+            color: var(--light-gray);
+            padding: 32px 24px;
+            text-align: center;
+            font-size: 13px;
+            margin-top: 48px;
+        }
+
+        footer a { color: var(--copper-light); text-decoration: none; }
+
+        .footer-note {
+            font-size: 11px;
+            color: var(--warm-gray);
+            margin-top: 12px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 768px) {
+            .about-grid, .mirror-container { grid-template-columns: 1fr; }
+            .cafe-container { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 28px; letter-spacing: 3px; }
+            .landscape-canvas-wrapper, .cafe-canvas-wrapper { height: 350px; }
+            nav { padding: 0 8px; }
+            .nav-tab { padding: 12px 10px; font-size: 12px; }
+            .community-select { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+    <span class="platform-id">EIRINI</span>
+    <div class="lang-switcher">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="tr">TR</button>
+        <button class="lang-btn" data-lang="el">EL</button>
+    </div>
+</div>
+
+<!-- NAVIGATION -->
+<nav id="mainNav">
+    <button class="nav-tab active" data-section="home">Home</button>
+    <button class="nav-tab" data-section="process">Peace Process</button>
+    <button class="nav-tab" data-section="landscape">Opinion Landscape</button>
+    <button class="nav-tab" data-section="participate">Participate</button>
+    <button class="nav-tab" data-section="mirror">Community Mirror</button>
+    <button class="nav-tab" data-section="world-cafe">World Café Engine</button>
+    <button class="nav-tab" data-section="methodology">Methodology</button>
+</nav>
+
+<!-- ==================== HOME ==================== -->
+<div class="section active" id="home">
+    <div class="hero">
+        <h1>E I R I <span>N</span> I</h1>
+        <p class="hero-subtitle">
+            An agonistic civic platform for Greek Cypriots, Turkish Cypriots, and all who care about the future of Cyprus. No position is excluded. No consensus is manufactured. Every voice shapes the landscape.
+        </p>
+        <div class="hero-principles">
+            <span class="principle-badge">Trilingual</span>
+            <span class="principle-badge">Agonistic</span>
+            <span class="principle-badge">Non-Prescriptive</span>
+            <span class="principle-badge">Always-On</span>
+            <span class="principle-badge">PAR-Driven</span>
+        </div>
+    </div>
+
+    <div class="about-grid">
+        <div class="about-card">
+            <h3>What This Is</h3>
+            <p>EIRINI is a digital civic space where citizens engage with the Cyprus problem on their own terms, on their own schedule. It maps the full landscape of opinion across both communities — not to find artificial consensus, but to make visible what people actually think, feel, and want.</p>
+        </div>
+        <div class="about-card">
+            <h3>Beyond Tokenism</h3>
+            <p>EIRINI integrates Participatory Action Research (PAR) methodology. This is not a static poll or a top-down consultation. It operates at the level of 'Delegated Power' (Arnstein), embedding citizens at the center of the peace process through iterative Reflection-Action loops.</p>
+        </div>
+        <div class="about-card">
+            <h3>Agonistic Pluralism</h3>
+            <p>Following Chantal Mouffe's framework, EIRINI does not force a sanitized, rational consensus. It is a safe institutional container that transforms raw antagonism into democratic agonism. Disagreement is not failure; it is constitutive of democratic life.</p>
+        </div>
+        <div class="about-card">
+            <h3>Who Built This</h3>
+            <p>EIRINI is an initiative of the Cyprus Peace and Dialogue Center (CPDC), developed in parallel with the consultative body process agreed by the leaders in July 2025. It is designed as the digital infrastructure for inclusive civic participation — a mirror that shows negotiators what their communities actually want.</p>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== PEACE PROCESS ==================== -->
+<div class="section" id="process">
+    <div class="status-banner">
+        <h2>Current Status</h2>
+        <span class="date-tag">Updated April 2026</span>
+        <p>Following Tufan Erhürman's election as Turkish Cypriot leader in October 2025, formal engagement between the two sides has resumed. The leaders have met multiple times under UN auspices, most recently on April 6, 2026. A consultative body for civil society was agreed in principle in July 2025 but terms of reference remain under discussion.</p>
+    </div>
+
+    <h2 style="color: var(--copper-dark); margin-bottom: 20px;">Timeline</h2>
+
+    <div class="timeline" id="timelineContainer"></div>
+
+    <div style="margin-top: 32px;">
+        <h2 style="color: var(--copper-dark); margin-bottom: 8px;">How Each Side Sees It</h2>
+        <p style="color: var(--warm-gray); font-size: 14px; margin-bottom: 20px;">The same events, framed differently. Neither framing is endorsed by this platform.</p>
+
+        <div class="mirror-container">
+            <div class="mirror-panel gc-space">
+                <h3 style="color: var(--sea);">Greek Cypriot Perspective</h3>
+                <div class="mirror-thread">
+                    <p class="thread-text">The Republic of Cyprus is the sole internationally recognized state. Any solution must respect the acquis communautaire and EU membership. The BBF framework remains the basis for negotiations. Turkey's two-state rhetoric undermines the process.</p>
+                </div>
+                <div class="mirror-thread">
+                    <p class="thread-text">Erhürman's election is cautiously welcomed but concrete steps — not rhetoric — are needed. The consultative body must include genuine civil society, not political proxies.</p>
+                </div>
+            </div>
+            <div class="mirror-panel tc-space">
+                <h3 style="color: var(--copper);">Turkish Cypriot Perspective</h3>
+                <div class="mirror-thread">
+                    <p class="thread-text">Turkish Cypriots are equal co-founders of the Republic, not a minority. Decades of BBF negotiations have produced no result. Any new process must be "without prejudice" to outcome — all options must remain on the table.</p>
+                </div>
+                <div class="mirror-thread">
+                    <p class="thread-text">Erhürman's presidency represents a mandate for engagement but also for ending isolation and unfair treatment. Political equality and sovereign status are non-negotiable prerequisites.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== OPINION LANDSCAPE ==================== -->
+<div class="section" id="landscape">
+    <div class="landscape-intro">
+        <h2>The Opinion Landscape</h2>
+        <p>A living map of where Cypriots stand on the key dimensions of the Cyprus problem. Each dot represents a real position. Clusters emerge organically. No position is filtered, ranked, or suppressed.</p>
+    </div>
+
+    <div class="issue-tabs" id="issueTabs"></div>
+
+    <div class="landscape-container">
+        <div class="landscape-canvas-wrapper" id="landscapeWrapper">
+            <canvas id="landscapeCanvas"></canvas>
+            <span class="axis-label top" id="axisTop"></span>
+            <span class="axis-label bottom" id="axisBottom"></span>
+            <span class="axis-label left" id="axisLeft"></span>
+            <span class="axis-label right" id="axisRight"></span>
+        </div>
+        <div class="landscape-legend">
+            <div class="legend-item"><div class="legend-dot gc"></div> Greek Cypriot</div>
+            <div class="legend-item"><div class="legend-dot tc"></div> Turkish Cypriot</div>
+            <div class="legend-item"><div class="legend-dot other"></div> Other / Unspecified</div>
+        </div>
+    </div>
+
+    <div class="convergence-section">
+        <h3>Detected Convergences</h3>
+        <p style="font-size: 14px; color: var(--warm-gray); margin-bottom: 16px;">Areas where positions from both communities overlap — often unbeknownst to either side.</p>
+        <div id="convergenceContainer"></div>
+    </div>
+</div>
+
+<!-- ==================== PARTICIPATE ==================== -->
+<div class="section" id="participate">
+    <div class="participate-panel">
+        <h3>Place Yourself on the Landscape</h3>
+        <p style="color: var(--warm-gray); font-size: 14px; margin-bottom: 20px;">
+            Your responses position you within the opinion landscape. Nothing is right or wrong. There are no 'moderate' or 'extreme' labels. You are simply adding your voice to the map.
+        </p>
+
+        <div style="margin-bottom: 24px;">
+            <label style="font-size: 13px; font-weight: 600; display: block; margin-bottom: 10px;">I identify as:</label>
+            <div class="community-select" id="communitySelect">
+                <div class="community-option" data-value="gc">Greek Cypriot</div>
+                <div class="community-option" data-value="tc">Turkish Cypriot</div>
+                <div class="community-option" data-value="other">Other / Prefer not to say</div>
+            </div>
+        </div>
+
+        <div class="prompt-card">
+            <p class="prompt-question">What governance model do you believe is most appropriate for Cyprus?</p>
+            <p class="prompt-context">Move the slider to where you feel most honest, not where you think you should be.</p>
+            <div class="slider-group">
+                <div class="slider-row">
+                    <span>Unitary State</span>
+                    <input type="range" min="0" max="100" value="50" id="governance-slider">
+                    <span>Two Separate States</span>
+                </div>
+                <div style="text-align: center; margin-top: 4px;">
+                    <span style="font-size: 11px; color: var(--warm-gray);">↑ BBF sits roughly in the center</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="prompt-card">
+            <p class="prompt-question">How should security be arranged in a settlement?</p>
+            <div class="slider-group">
+                <div class="slider-row">
+                    <span>No external guarantees</span>
+                    <input type="range" min="0" max="100" value="50" id="security-slider">
+                    <span>Retain all guarantees</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="prompt-card">
+            <p class="prompt-question">How important is territorial adjustment to you?</p>
+            <div class="slider-group">
+                <div class="slider-row">
+                    <span>Critical / non-negotiable</span>
+                    <input type="range" min="0" max="100" value="50" id="territory-slider">
+                    <span>Less important than other issues</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="prompt-card">
+            <p class="prompt-question">What approach to property do you consider most just?</p>
+            <div class="slider-group">
+                <div class="slider-row">
+                    <span>Full restitution</span>
+                    <input type="range" min="0" max="100" value="50" id="property-slider">
+                    <span>Compensation-based</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="prompt-card">
+            <p class="prompt-question">How should EU membership factor into a solution?</p>
+            <div class="slider-group">
+                <div class="slider-row">
+                    <span>EU acquis applies fully</span>
+                    <input type="range" min="0" max="100" value="50" id="eu-slider">
+                    <span>Permanent derogations needed</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="prompt-card">
+            <p class="prompt-question">In your own words: what does a just and lasting solution look like to you?</p>
+            <p class="prompt-context">Write in any language. Say what you actually think, not what sounds acceptable.</p>
+            <textarea id="openText" placeholder="..."></textarea>
+        </div>
+
+        <div class="prompt-card">
+            <p class="prompt-question">What feeling do you associate most with the Cyprus problem?</p>
+            <p class="prompt-context">This isn't about policy. It's about what this means to you as a person.</p>
+            <div class="community-select" id="emotionSelect">
+                <div class="community-option" data-value="fear">Fear</div>
+                <div class="community-option" data-value="anger">Anger</div>
+                <div class="community-option" data-value="hope">Hope</div>
+                <div class="community-option" data-value="grief">Grief</div>
+                <div class="community-option" data-value="fatigue">Fatigue</div>
+                <div class="community-option" data-value="indifference">Indifference</div>
+            </div>
+            <textarea id="emotionText" placeholder="Tell us more, if you want..."></textarea>
+        </div>
+
+        <div style="text-align: center; margin-top: 24px;">
+            <button class="submit-btn" id="submitBtn">Place My Voice on the Map</button>
+        </div>
+
+        <div class="response-placed" id="responsePlaced">
+            <div class="checkmark">&#10003;</div>
+            <h3>Your voice has been placed.</h3>
+            <p>You can see your position on the Opinion Landscape. Return and update your responses at any time.</p>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== COMMUNITY MIRROR ==================== -->
+<div class="section" id="mirror">
+    <div class="landscape-intro">
+        <h2>The Community Mirror</h2>
+        <p>How does each community discuss the Cyprus problem amongst itself? Not what they say to each other — but what they say about each other. The patterns revealed here are often more honest than any joint forum.</p>
+    </div>
+
+    <div class="mirror-container">
+        <div class="mirror-panel gc-space">
+            <h3 style="color: var(--sea);">Greek Cypriots discussing Turkish Cypriots</h3>
+            <p class="mirror-subtitle">Aggregate patterns from intracommunal discourse</p>
+            <div class="mirror-thread">
+                <p class="thread-text">Dominant narrative: Turkish Cypriots are seen sympathetically as individuals but political leadership was viewed as an extension of Ankara. Erhürman's election introduced cautious optimism.</p>
+                <div class="sentiment-bar" style="background: linear-gradient(to right, var(--red-soft) 40%, var(--amber) 40%, var(--amber) 70%, var(--green-soft) 70%);"></div>
+                <p class="thread-meta">Sentiment: 40% skeptical · 30% cautious · 30% hopeful</p>
+            </div>
+            <div class="mirror-thread">
+                <p class="thread-text">Recurring concern: 'Even if we agree, Turkey will veto.' This fatalism coexists with genuine desire for contact and normalcy — a tension the political class rarely acknowledges.</p>
+                <div class="sentiment-bar" style="background: linear-gradient(to right, var(--red-soft) 55%, var(--amber) 55%);"></div>
+                <p class="thread-meta">Sentiment: 55% pessimistic · 45% ambivalent</p>
+            </div>
+            <div class="mirror-insight">
+                <h4>AI Pattern Detection</h4>
+                <p>A significant gap exists between private and public discourse. In intracommunal settings, Greek Cypriots express more willingness to accept power-sharing than they would in a bicommunal forum. Social stigma around 'conceding too much' suppresses moderate positions in public.</p>
+            </div>
+        </div>
+
+        <div class="mirror-panel tc-space">
+            <h3 style="color: var(--copper);">Turkish Cypriots discussing Greek Cypriots</h3>
+            <p class="mirror-subtitle">Aggregate patterns from intracommunal discourse</p>
+            <div class="mirror-thread">
+                <p class="thread-text">Dominant narrative: Greek Cypriots are perceived as unwilling to accept Turkish Cypriots as political equals. The 2004 Annan Plan referendum is frequently cited — 'we said yes, they said no, and we were punished for it.'</p>
+                <div class="sentiment-bar" style="background: linear-gradient(to right, var(--red-soft) 50%, var(--amber) 50%, var(--amber) 80%, var(--green-soft) 80%);"></div>
+                <p class="thread-meta">Sentiment: 50% resentful · 30% resigned · 20% open</p>
+            </div>
+            <div class="mirror-thread">
+                <p class="thread-text">Under-reported narrative: A growing segment — particularly younger, urban, secular — expresses frustration not primarily with Greek Cypriots but with Turkey's increasing influence. 'We didn't fight for independence from one side to become dependent on another.'</p>
+                <div class="sentiment-bar" style="background: linear-gradient(to right, var(--red-soft) 45%, var(--amber) 45%, var(--amber) 80%, var(--green-soft) 80%);"></div>
+                <p class="thread-meta">Sentiment: 45% defiant · 35% anxious · 20% hopeful</p>
+            </div>
+            <div class="mirror-insight">
+                <h4>AI Pattern Detection</h4>
+                <p>Turkish Cypriot discourse reveals a three-way split: those who prefer two states, those who prefer federation with equality guarantees, and a growing cohort expressing fatigue with the entire framework debate. The third group is the fastest-growing and least represented in negotiations.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="cross-mirror">
+        <h3>Cross-Mirror Insight</h3>
+        <div class="method-highlight">
+            Both communities exhibit a 'public-private gap' — positions expressed within the community are more flexible than those expressed across the divide. This suggests that social pressure within each community, not fundamental incompatibility between them, may be the primary obstacle to settlement. A platform that makes this gap visible could fundamentally change the negotiation dynamic.
+        </div>
+    </div>
+</div>
+
+<!-- ==================== WORLD CAFE ENGINE ==================== -->
+<div class="section" id="world-cafe">
+    <div style="background: var(--white); padding: 24px; border-radius: 8px; text-align: center;">
+        <h2 style="color: var(--copper-dark);">The PAR World Café Engine</h2>
+        <p style="color: var(--warm-gray); max-width: 800px; margin: 8px auto 0;">
+            A functional simulation of how EIRINI's AI operationalizes Nico Carpentier's Reflection-Action loops. It manages deeply divided bicommunal input, enforces cognitive equity, and generates bridging proposals without forcing cultural assimilation.
+        </p>
+    </div>
+
+    <div class="cafe-container">
+        <div class="cafe-controls">
+            <div class="sim-btn-row">
+                <button class="sim-btn" id="advanceBtn">Advance PAR Cycle ▸</button>
+                <button class="sim-btn reset" id="resetBtn">Reset</button>
+            </div>
+
+            <div class="cafe-legend">
+                <div class="cafe-legend-item"><div class="cafe-legend-dot" style="background: var(--sea);"></div> Greek Cypriot</div>
+                <div class="cafe-legend-item"><div class="cafe-legend-dot" style="background: var(--copper);"></div> Turkish Cypriot</div>
+                <div class="cafe-legend-item"><div class="cafe-legend-dot" style="background: var(--olive);"></div> Expert / UN</div>
+            </div>
+
+            <div class="phase-card active" id="phase-1">
+                <h4>Stage 1: Bicommunal World Café <span class="phase-status active">Active</span></h4>
+                <p>Greek Cypriot and Turkish Cypriot nodes rotate through 4 policy tables (Security, Territory, Property, Governance). AI translates input in real-time, preventing linguistic dominance. Experts observe but do not steer.</p>
+            </div>
+
+            <div class="phase-card" id="phase-2">
+                <h4>Stage 2: AI Semantic Extraction <span class="phase-status waiting">Waiting</span></h4>
+                <p>Instead of mapping polarized slogans, the AI extracts underlying shared themes and human needs (e.g., 'Implementation Security', 'Predictable Timelines') to the center. Jargon is demystified; needs are surfaced.</p>
+            </div>
+
+            <div class="phase-card" id="phase-3">
+                <h4>Stage 3: Expert Removal Protocol <span class="phase-status waiting">Waiting</span></h4>
+                <p>To ensure cognitive equity, Expert/UN nodes are removed from the deliberative space. The AI generates a 'Bridging Proposal' based purely on semantic clusters synthesized from citizen input. No elite capture.</p>
+            </div>
+
+            <div class="phase-card" id="phase-4">
+                <h4>Stage 4: Agonistic Consensus <span class="phase-status waiting">Waiting</span></h4>
+                <p>Citizens converge toward the bridging proposal. Crucially, GC and TC nodes remain visually clustered in distinct identities. This proves <strong>Agonistic Pluralism</strong>: agreement without assimilation or identity erasure.</p>
+            </div>
+        </div>
+
+        <div class="cafe-canvas-wrapper" id="cafeWrapper">
+            <canvas id="cafeCanvas"></canvas>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== METHODOLOGY ==================== -->
+<div class="section" id="methodology">
+    <div class="method-card">
+        <h3>Theoretical Framework: Agonistic Pluralism vs. Deliberative Consensus</h3>
+        <p>EIRINI is grounded in Chantal Mouffe's agonistic pluralism rather than Jürgen Habermas's deliberative democracy model. While Habermasian approaches seek rational consensus through structured dialogue, agonistic approaches recognize that political conflict is constitutive of democratic life.</p>
+        <p>In the Cyprus context, this distinction is critical: a consensus-seeking platform implicitly privileges the status quo framework (BBF) and marginalizes positions that challenge it — including those held by significant portions of both communities. The Habermasian model presupposes equality that doesn't exist and treats dissensus as failure rather than legitimate political expression.</p>
+        <div class="method-highlight">
+            The platform's design follows three agonistic principles: (1) all positions are legitimate political expressions, not obstacles to be overcome; (2) the goal is transformation of antagonism into agonism, not elimination of conflict; (3) the platform reveals the landscape of opinion rather than steering it toward convergence.
+        </div>
+    </div>
+
+    <div class="method-card">
+        <h3>Participatory Action Research (PAR) & the World Café Method</h3>
+        <p>This initiative explicitly rejects tokenistic consultation. Anchored in Sherry Arnstein's "Ladder of Citizen Participation," the platform is designed to operate at Rung 7 (Delegated Power). The World Café engine guarantees that citizens have structural authority over process design.</p>
+        <p>Rather than a rigid linear process, the assembly uses cyclical Reflection-Action loops (Nico Carpentier). Citizens can pause, review AI-clustered feedback, and adjust the deliberative rules, actively shifting epistemic power from facilitators to participants. The Expert Removal Protocol ensures that institutional knowledge informs but does not dominate citizen deliberation.</p>
+        <div class="method-highlight">
+            <strong>Key innovation:</strong> The PAR cycle is operationalized digitally through the World Café Engine, which manages bicommunal input, enforces cognitive equity through algorithmic design, and generates bridging proposals from citizen-generated semantic clusters — not expert assumptions.
+        </div>
+    </div>
+
+    <div class="method-card">
+        <h3>The Intracommunal Mirror: Why It Matters</h3>
+        <p>Most peacebuilding platforms focus on intercommunal dialogue. EIRINI adds a significantly under-explored dimension: intracommunal discourse — how each community talks about the other amongst itself. People communicate differently depending on their audience; the platform captures these differences as data.</p>
+        <div class="method-highlight">
+            <strong>Key hypothesis:</strong> Social pressure within each community — not fundamental incompatibility between them — is the primary obstacle to a settlement gaining public acceptance. If correct, the most impactful intervention is not more dialogue between the two sides, but greater honesty within each side about what they're actually willing to accept.
+        </div>
+    </div>
+
+    <div class="method-card">
+        <h3>Data Ethics & Anonymity</h3>
+        <p>All responses are anonymous. Community identification is voluntary. No individual response is ever displayed — only aggregate patterns and clusters. The AI processes text for semantic positioning and sentiment analysis; it does not store or display original text in identifiable form. Users can update or delete their responses at any time.</p>
+        <p>The platform does not sell data, does not use data for advertising, and does not share individual-level data with any party including CPDC, the UN, or either government. No third-party analytics. No tracking cookies.</p>
+    </div>
+
+    <div class="method-card">
+        <h3>Relationship to the Consultative Body</h3>
+        <p>In July 2025, the leaders agreed to establish a consultative body for civil society engagement. Terms of reference remain under discussion. EIRINI is designed as the digital infrastructure for this body — ensuring that representatives are informed by continuous, large-scale citizen input rather than relying solely on their own networks. The platform does not replace the formal body; it makes it more representative, more transparent, and more legitimate.</p>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <p><strong>EIRINI</strong> — An initiative of the <a href="https://cpdc-official.com" target="_blank">Cyprus Peace and Dialogue Center</a></p>
+    <p class="footer-note">
+        This platform does not use flags, national symbols, or language that prejudices sovereignty or legal status. It treats both communities with equal dignity. No position is endorsed. All sources are cited. Design principles: trilingual, agonistic, human-centered, transparent, non-prescriptive, PAR-driven, accessible.
+    </p>
+</footer>
+
+<!-- NOTIFICATION -->
+<div class="notification" id="notification"></div>
+
+<script>
+(function() {
+    'use strict';
+
+    // ========== DATA ==========
+    const TIMELINE_DATA = [
+        { date: "April 6, 2026", title: "Leaders Meet at UN Protected Area", desc: "UN Personal Envoy hosts the first meeting of the two Cypriot leaders in 2026. Discussions focus on confidence-building measures and the framework for resumed substantive negotiations.", source: "UN OSASG", type: "un" },
+        { date: "January 29, 2026", title: "CPDC Proposes Consultative Body Model", desc: "Researchers present expanded proposals for a consultative body at a UNFICYP-hosted event at Ledra Palace, drawing on the Ost-Belgien citizens' council model.", source: "UNFICYP / CPDC", type: "un" },
+        { date: "January 2026", title: "UNFICYP Mandate Renewed", desc: "Security Council renews UNFICYP mandate. Resolution notes the leaders' common understanding on four additional measures including the consultative body.", source: "UN Security Council", type: "un" },
+        { date: "December 14, 2025", title: "Second Leader Meeting", desc: "Christodoulides and Erhürman meet for the second time. Discussions cover substance, confidence-building measures, and UN resolutions.", source: "UN / Both Sides", type: "un" },
+        { date: "November 20, 2025", title: "First Christodoulides-Erhürman Meeting", desc: "The first encounter since Erhürman's election. They agree to hold further joint sessions and maintain regular contact.", source: "UN Mediation", type: "un" },
+        { date: "October 19, 2025", title: "Erhürman Elected Turkish Cypriot Leader", desc: "Tufan Erhürman of the CTP defeats incumbent Ersin Tatar, signaling a shift toward re-engagement with the peace process.", source: "TRNC Election", type: "tc" },
+        { date: "September 27, 2025", title: "UN Secretary-General Trilateral Meeting", desc: "Secretary-General Guterres convenes a trilateral meeting with both Cypriot leaders at UN Headquarters during the General Assembly.", source: "UN SG Office", type: "un" },
+        { date: "July 17, 2025", title: "Informal Meeting — Consultative Body Agreed", desc: "The two sides reach a common understanding on establishing a consultative body for civil society, among other confidence-building measures.", source: "UN SG Office", type: "un" },
+        { date: "March 17–18, 2025", title: "Geneva Informal Meeting", desc: "Six trust-building initiatives produced. Personal Envoy Holguín Cuéllar facilitates. Four of six measures subsequently completed.", source: "UN OSASG", type: "un" }
+    ];
+
+    const ISSUE_AXES = {
+        governance: { top: "Stronger Central Government", bottom: "Looser Association / Two States", left: "More Integration", right: "More Separation" },
+        territory: { top: "Significant Territorial Adjustment", bottom: "Current Lines Maintained", left: "Return Priority", right: "Compensation Priority" },
+        security: { top: "Full Demilitarization", bottom: "Maintain Security Architecture", left: "EU/International Guarantees", right: "Existing Treaty Guarantees" },
+        property: { top: "Full Restitution", bottom: "Full Compensation", left: "Individual Rights Priority", right: "Community Stability Priority" },
+        eu: { top: "Full Acquis Immediately", bottom: "Extended Transition / Derogations", left: "EU as Solution Framework", right: "EU as Complicating Factor" },
+        identity: { top: "Cypriot Identity Primary", bottom: "Ethnic/National Identity Primary", left: "Recognition Through Unity", right: "Recognition Through Sovereignty" }
+    };
+
+    const CLUSTER_DATA = {
+        governance: [
+            { cx: 0.25, cy: 0.3, spread: 0.12, count: 35, community: 'gc' },
+            { cx: 0.35, cy: 0.45, spread: 0.08, count: 15, community: 'gc' },
+            { cx: 0.65, cy: 0.55, spread: 0.1, count: 20, community: 'tc' },
+            { cx: 0.75, cy: 0.7, spread: 0.12, count: 25, community: 'tc' },
+            { cx: 0.5, cy: 0.5, spread: 0.15, count: 10, community: 'other' },
+            { cx: 0.45, cy: 0.4, spread: 0.06, count: 8, community: 'tc' }
+        ],
+        territory: [
+            { cx: 0.2, cy: 0.25, spread: 0.1, count: 40, community: 'gc' },
+            { cx: 0.7, cy: 0.6, spread: 0.15, count: 30, community: 'tc' },
+            { cx: 0.4, cy: 0.5, spread: 0.1, count: 12, community: 'other' },
+            { cx: 0.55, cy: 0.35, spread: 0.08, count: 8, community: 'gc' }
+        ],
+        security: [
+            { cx: 0.2, cy: 0.3, spread: 0.12, count: 35, community: 'gc' },
+            { cx: 0.75, cy: 0.65, spread: 0.1, count: 30, community: 'tc' },
+            { cx: 0.4, cy: 0.5, spread: 0.12, count: 15, community: 'other' },
+            { cx: 0.35, cy: 0.55, spread: 0.08, count: 10, community: 'tc' }
+        ],
+        property: [
+            { cx: 0.2, cy: 0.2, spread: 0.1, count: 38, community: 'gc' },
+            { cx: 0.7, cy: 0.7, spread: 0.12, count: 28, community: 'tc' },
+            { cx: 0.45, cy: 0.45, spread: 0.15, count: 15, community: 'other' }
+        ],
+        eu: [
+            { cx: 0.25, cy: 0.25, spread: 0.12, count: 35, community: 'gc' },
+            { cx: 0.6, cy: 0.6, spread: 0.15, count: 25, community: 'tc' },
+            { cx: 0.7, cy: 0.35, spread: 0.08, count: 12, community: 'tc' },
+            { cx: 0.4, cy: 0.45, spread: 0.1, count: 10, community: 'other' }
+        ],
+        identity: [
+            { cx: 0.35, cy: 0.3, spread: 0.15, count: 25, community: 'gc' },
+            { cx: 0.2, cy: 0.65, spread: 0.1, count: 20, community: 'gc' },
+            { cx: 0.7, cy: 0.6, spread: 0.12, count: 20, community: 'tc' },
+            { cx: 0.6, cy: 0.35, spread: 0.08, count: 15, community: 'tc' },
+            { cx: 0.45, cy: 0.25, spread: 0.1, count: 12, community: 'other' }
+        ]
+    };
+
+    const CONVERGENCES = [
+        { score: 78, level: 'high', title: 'Economic Integration Benefits', desc: 'Strong cross-communal agreement that economic cooperation would benefit both communities, regardless of the political framework.' },
+        { score: 72, level: 'high', title: 'Freedom of Movement', desc: 'High convergence on unrestricted movement across the island as fundamental to any settlement.' },
+        { score: 67, level: 'high', title: 'Process Fatigue', desc: 'Strong cross-communal sense that formal negotiations have failed for decades and new approaches are needed.' },
+        { score: 54, level: 'medium', title: 'Security Concerns Are Mutual', desc: 'Both communities express security anxieties framed differently — GC: Turkey\'s military; TC: demographic vulnerability. The underlying concern converges.' },
+        { score: 31, level: 'low', title: 'Governance Model', desc: 'Significant divergence on political structure. However, a subset of both communities expresses openness to creative models beyond BBF or two-state frameworks.' }
+    ];
+
+    // ========== STATE ==========
+    let currentLang = 'en';
+    let currentIssue = 'governance';
+    let selectedCommunity = null;
+    let selectedEmotion = null;
+    let userPosition = null;
+
+    // Cafe state
+    let cafePhase = 1;
+    let cafeNodes = [];
+    let cafeTables = [];
+    let cafeAnimId = null;
+    let cafeCanvas, cafeCtx, cafeW, cafeH;
+
+    // Landscape state
+    let lsCanvas, lsCtx, lsW, lsH;
+
+    // ========== UTILITIES ==========
+    function seededRandom(seed) {
+        let x = Math.sin(seed) * 10000;
+        return x - Math.floor(x);
+    }
+
+    function showNotification(msg) {
+        const n = document.getElementById('notification');
+        n.innerHTML = msg;
+        n.classList.add('show');
+        setTimeout(() => n.classList.remove('show'), 3500);
+    }
+
+    // ========== NAVIGATION ==========
+    document.getElementById('mainNav').addEventListener('click', function(e) {
+        const tab = e.target.closest('.nav-tab');
+        if (!tab) return;
+        const sectionId = tab.dataset.section;
+
+        document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+        document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+        document.getElementById(sectionId).classList.add('active');
+        tab.classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+
+        if (sectionId === 'landscape') initLandscape();
+        if (sectionId === 'world-cafe') initCafe();
+    });
+
+    // ========== LANGUAGE ==========
+    document.querySelector('.lang-switcher').addEventListener('click', function(e) {
+        const btn = e.target.closest('.lang-btn');
+        if (!btn) return;
+        currentLang = btn.dataset.lang;
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const msgs = { en: 'Language switched to English', tr: 'Dil Türkçeye değiştirildi', el: 'Η γλώσσα άλλαξε σε Ελληνικά' };
+        showNotification(msgs[currentLang]);
+    });
+
+    // ========== TIMELINE ==========
+    function renderTimeline() {
+        const container = document.getElementById('timelineContainer');
+        container.innerHTML = TIMELINE_DATA.map(ev => `
+            <div class="timeline-item">
+                <span class="tl-date">${ev.date}</span>
+                <h3>${ev.title}</h3>
+                <p>${ev.desc}</p>
+                <span class="source-tag ${ev.type}">${ev.source}</span>
+            </div>
+        `).join('');
+    }
+
+    // ========== OPINION LANDSCAPE ==========
+    function renderIssueTabs() {
+        const container = document.getElementById('issueTabs');
+        const labels = {
+            governance: 'Governance Model', territory: 'Territory', security: 'Security & Guarantees',
+            property: 'Property', eu: 'EU & International', identity: 'Identity & Recognition'
+        };
+        container.innerHTML = Object.keys(ISSUE_AXES).map(key =>
+            `<button class="issue-tab ${key === currentIssue ? 'active' : ''}" data-issue="${key}">${labels[key]}</button>`
+        ).join('');
+
+        container.addEventListener('click', function(e) {
+            const tab = e.target.closest('.issue-tab');
+            if (!tab) return;
+            currentIssue = tab.dataset.issue;
+            container.querySelectorAll('.issue-tab').forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            updateAxes();
+            drawLandscape();
+        });
+    }
+
+    function renderConvergences() {
+        const container = document.getElementById('convergenceContainer');
+        container.innerHTML = CONVERGENCES.map(c => `
+            <div class="convergence-item">
+                <div class="convergence-score ${c.level}">${c.score}%</div>
+                <div class="convergence-detail">
+                    <h4>${c.title}</h4>
+                    <p>${c.desc}</p>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    function updateAxes() {
+        const axes = ISSUE_AXES[currentIssue];
+        document.getElementById('axisTop').textContent = axes.top;
+        document.getElementById('axisBottom').textContent = axes.bottom;
+        document.getElementById('axisLeft').textContent = axes.left;
+        document.getElementById('axisRight').textContent = axes.right;
+    }
+
+    function initLandscape() {
+        lsCanvas = document.getElementById('landscapeCanvas');
+        const wrapper = document.getElementById('landscapeWrapper');
+        lsCanvas.width = wrapper.offsetWidth;
+        lsCanvas.height = wrapper.offsetHeight;
+        lsW = lsCanvas.width;
+        lsH = lsCanvas.height;
+        lsCtx = lsCanvas.getContext('2d');
+        updateAxes();
+        drawLandscape();
+    }
+
+    function generatePoints(issue, w, h) {
+        const clusters = CLUSTER_DATA[issue] || CLUSTER_DATA.governance;
+        const points = [];
+        let seed = issue.charCodeAt(0);
+
+        clusters.forEach(cluster => {
+            for (let i = 0; i < cluster.count; i++) {
+                seed += 7;
+                const angle = seededRandom(seed) * Math.PI * 2;
+                seed += 3;
+                const radius = seededRandom(seed) * cluster.spread;
+                const x = Math.max(0.05, Math.min(0.95, cluster.cx + Math.cos(angle) * radius));
+                const y = Math.max(0.05, Math.min(0.95, cluster.cy + Math.sin(angle) * radius));
+                points.push({ x: x * w, y: y * h, community: cluster.community });
+            }
+        });
+        return points;
+    }
+
+    function drawLandscape() {
+        if (!lsCtx) return;
+        lsCtx.clearRect(0, 0, lsW, lsH);
+
+        // Grid
+        lsCtx.strokeStyle = '#E0D5C8';
+        lsCtx.lineWidth = 0.5;
+        for (let i = 0; i <= 10; i++) {
+            lsCtx.beginPath();
+            lsCtx.moveTo((lsW / 10) * i, 0);
+            lsCtx.lineTo((lsW / 10) * i, lsH);
+            lsCtx.stroke();
+            lsCtx.beginPath();
+            lsCtx.moveTo(0, (lsH / 10) * i);
+            lsCtx.lineTo(lsW, (lsH / 10) * i);
+            lsCtx.stroke();
+        }
+
+        // Center crosshair
+        lsCtx.strokeStyle = '#C4B8AA';
+        lsCtx.lineWidth = 1;
+        lsCtx.setLineDash([5, 5]);
+        lsCtx.beginPath();
+        lsCtx.moveTo(lsW / 2, 0);
+        lsCtx.lineTo(lsW / 2, lsH);
+        lsCtx.stroke();
+        lsCtx.beginPath();
+        lsCtx.moveTo(0, lsH / 2);
+        lsCtx.lineTo(lsW, lsH / 2);
+        lsCtx.stroke();
+        lsCtx.setLineDash([]);
+
+        const data = generatePoints(currentIssue, lsW, lsH);
+        const colors = { gc: '46,107,138', tc: '184,115,51', other: '112,130,56' };
+        const fills = { gc: '#2E6B8A', tc: '#B87333', other: '#708238' };
+
+        // Heatmap
+        data.forEach(p => {
+            const grad = lsCtx.createRadialGradient(p.x, p.y, 0, p.x, p.y, 30);
+            grad.addColorStop(0, `rgba(${colors[p.community]}, 0.08)`);
+            grad.addColorStop(1, `rgba(${colors[p.community]}, 0)`);
+            lsCtx.fillStyle = grad;
+            lsCtx.fillRect(p.x - 30, p.y - 30, 60, 60);
+        });
+
+        // Points
+        data.forEach(p => {
+            lsCtx.beginPath();
+            lsCtx.arc(p.x, p.y, 4, 0, Math.PI * 2);
+            lsCtx.fillStyle = fills[p.community];
+            lsCtx.globalAlpha = 0.7;
+            lsCtx.fill();
+            lsCtx.globalAlpha = 1;
+            lsCtx.strokeStyle = 'rgba(255,255,255,0.5)';
+            lsCtx.lineWidth = 1;
+            lsCtx.stroke();
+        });
+
+        // User position
+        if (userPosition) {
+            lsCtx.beginPath();
+            lsCtx.arc(userPosition.x * lsW, userPosition.y * lsH, 8, 0, Math.PI * 2);
+            lsCtx.fillStyle = '#2C2C2C';
+            lsCtx.fill();
+            lsCtx.strokeStyle = '#FFFFFF';
+            lsCtx.lineWidth = 2;
+            lsCtx.stroke();
+            lsCtx.fillStyle = '#2C2C2C';
+            lsCtx.font = '11px Segoe UI';
+            lsCtx.textAlign = 'center';
+            lsCtx.fillText('YOU', userPosition.x * lsW, userPosition.y * lsH - 14);
+        }
+    }
+
+    // ========== PARTICIPATION ==========
+    document.getElementById('communitySelect').addEventListener('click', function(e) {
+        const opt = e.target.closest('.community-option');
+        if (!opt) return;
+        this.querySelectorAll('.community-option').forEach(o => o.classList.remove('selected'));
+        opt.classList.add('selected');
+        selectedCommunity = opt.dataset.value;
+    });
+
+    document.getElementById('emotionSelect').addEventListener('click', function(e) {
+        const opt = e.target.closest('.community-option');
+        if (!opt) return;
+        this.querySelectorAll('.community-option').forEach(o => o.classList.remove('selected'));
+        opt.classList.add('selected');
+        selectedEmotion = opt.dataset.value;
+    });
+
+    document.getElementById('submitBtn').addEventListener('click', function() {
+        if (!selectedCommunity) {
+            showNotification('Please select your community identification to continue.');
+            return;
+        }
+        const gov = document.getElementById('governance-slider').value / 100;
+        const sec = document.getElementById('security-slider').value / 100;
+        userPosition = { x: gov, y: 1 - sec };
+        document.getElementById('responsePlaced').classList.add('show');
+        if (lsCtx) drawLandscape();
+        showNotification('Your voice has been placed on the map.');
+    });
+
+    // ========== WORLD CAFE ENGINE ==========
+    function initCafe() {
+        cafeCanvas = document.getElementById('cafeCanvas');
+        const wrapper = document.getElementById('cafeWrapper');
+        cafeCanvas.width = wrapper.offsetWidth;
+        cafeCanvas.height = wrapper.offsetHeight;
+        cafeW = cafeCanvas.width;
+        cafeH = cafeCanvas.height;
+        cafeCtx = cafeCanvas.getContext('2d');
+
+        cafeTables = [
+            { x: cafeW * 0.25, y: cafeH * 0.25, label: "Security" },
+            { x: cafeW * 0.75, y: cafeH * 0.25, label: "Governance" },
+            { x: cafeW * 0.25, y: cafeH * 0.75, label: "Property" },
+            { x: cafeW * 0.75, y: cafeH * 0.75, label: "Territory" }
+        ];
+
+        cafeNodes = [];
+        for (let i = 0; i < 90; i++) {
+            let type = i < 40 ? 'gc' : (i < 80 ? 'tc' : 'expert');
+            cafeNodes.push({
+                x: cafeW / 2 + (Math.random() - 0.5) * cafeW * 0.8,
+                y: cafeH / 2 + (Math.random() - 0.5) * cafeH * 0.8,
+                tx: 0, ty: 0,
+                type: type,
+                alpha: 1,
+                speed: Math.random() * 0.04 + 0.015
+            });
+        }
+
+        cafePhase = 1;
+        updateCafeUI();
+        assignCafeTargets();
+
+        if (cafeAnimId) cancelAnimationFrame(cafeAnimId);
+        animateCafe();
+    }
+
+    document.getElementById('advanceBtn').addEventListener('click', function() {
+        if (cafePhase < 4) {
+            cafePhase++;
+            updateCafeUI();
+            assignCafeTargets();
+        }
+    });
+
+    document.getElementById('resetBtn').addEventListener('click', initCafe);
+
+    function updateCafeUI() {
+        for (let i = 1; i <= 4; i++) {
+            const card = document.getElementById('phase-' + i);
+            const status = card.querySelector('.phase-status');
+            card.classList.remove('active', 'completed');
+
+            if (i < cafePhase) {
+                card.classList.add('completed');
+                status.className = 'phase-status done';
+                status.textContent = 'Done';
+            } else if (i === cafePhase) {
+                card.classList.add('active');
+                status.className = 'phase-status active';
+                status.textContent = 'Active';
+            } else {
+                status.className = 'phase-status waiting';
+                status.textContent = 'Waiting';
+            }
+        }
+    }
+
+    function assignCafeTargets() {
+        const jitter = () => (Math.random() - 0.5);
+
+        cafeNodes.forEach(node => {
+            if (cafePhase === 1) {
+                let table = cafeTables[Math.floor(Math.random() * cafeTables.length)];
+                node.tx = table.x + jitter() * 100;
+                node.ty = table.y + jitter() * 100;
+                node.alpha = 1;
+            } else if (cafePhase === 2) {
+                let angle = Math.random() * Math.PI * 2;
+                let r = 120 + Math.random() * 60;
+                node.tx = cafeW / 2 + Math.cos(angle) * r;
+                node.ty = cafeH / 2 + Math.sin(angle) * r;
+            } else if (cafePhase === 3) {
+                if (node.type === 'expert') {
+                    node.tx = -50;
+                    node.ty = cafeH / 2;
+                } else {
+                    let angle = Math.random() * Math.PI * 2;
+                    let r = 80 + Math.random() * 40;
+                    node.tx = cafeW / 2 + Math.cos(angle) * r;
+                    node.ty = cafeH / 2 + Math.sin(angle) * r;
+                }
+            } else if (cafePhase === 4) {
+                if (node.type === 'gc') {
+                    node.tx = cafeW / 2 - 70 + jitter() * 50;
+                    node.ty = cafeH / 2 + jitter() * 70;
+                } else if (node.type === 'tc') {
+                    node.tx = cafeW / 2 + 70 + jitter() * 50;
+                    node.ty = cafeH / 2 + jitter() * 70;
+                }
+            }
+        });
+    }
+
+    // Periodic table rotation in phase 1
+    let lastRotation = 0;
+
+    function animateCafe() {
+        if (!cafeCtx) { cafeAnimId = requestAnimationFrame(animateCafe); return; }
+        cafeCtx.clearRect(0, 0, cafeW, cafeH);
+
+        const now = Date.now();
+
+        // Phase 1: Draw tables and periodically rotate
+        if (cafePhase === 1) {
+            cafeTables.forEach(t => {
+                cafeCtx.beginPath();
+                cafeCtx.arc(t.x, t.y, 55, 0, Math.PI * 2);
+                cafeCtx.fillStyle = 'rgba(232, 224, 216, 0.5)';
+                cafeCtx.fill();
+                cafeCtx.strokeStyle = '#C4B8AA';
+                cafeCtx.lineWidth = 1;
+                cafeCtx.stroke();
+
+                cafeCtx.fillStyle = '#2C2C2C';
+                cafeCtx.font = 'bold 12px Segoe UI';
+                cafeCtx.textAlign = 'center';
+                cafeCtx.fillText(t.label, t.x, t.y);
+            });
+
+            if (now - lastRotation > 3000) {
+                lastRotation = now;
+                assignCafeTargets();
+            }
+        }
+
+        // Phase 2+: Central zone
+        if (cafePhase >= 2) {
+            cafeCtx.beginPath();
+            cafeCtx.arc(cafeW / 2, cafeH / 2, 90, 0, Math.PI * 2);
+            cafeCtx.fillStyle = 'rgba(46, 107, 138, 0.08)';
+            cafeCtx.fill();
+            cafeCtx.strokeStyle = 'rgba(74, 144, 168, 0.4)';
+            cafeCtx.setLineDash([5, 5]);
+            cafeCtx.lineWidth = 1;
+            cafeCtx.stroke();
+            cafeCtx.setLineDash([]);
+
+            cafeCtx.fillStyle = '#2C2C2C';
+            cafeCtx.font = 'bold 13px Segoe UI';
+            cafeCtx.textAlign = 'center';
+            cafeCtx.fillText("Semantic Clusters", cafeW / 2, cafeH / 2 - 25);
+
+            cafeCtx.font = '11px Segoe UI';
+            cafeCtx.fillStyle = '#6B6560';
+            cafeCtx.fillText("'Implementation Security'", cafeW / 2, cafeH / 2 - 5);
+            cafeCtx.fillText("'Predictable Timelines'", cafeW / 2, cafeH / 2 + 12);
+            cafeCtx.fillText("'Mutual Recognition'", cafeW / 2, cafeH / 2 + 29);
+        }
+
+        // Phase 3+: Bridging proposal
+        if (cafePhase >= 3) {
+            const bx = cafeW / 2, by = cafeH / 2;
+            cafeCtx.fillStyle = 'rgba(245, 230, 211, 0.95)';
+            cafeCtx.strokeStyle = '#B87333';
+            cafeCtx.lineWidth = 2;
+            roundRect(cafeCtx, bx - 130, by - 35, 260, 70, 6);
+
+            cafeCtx.fillStyle = '#2C2C2C';
+            cafeCtx.font = 'bold 12px Segoe UI';
+            cafeCtx.textAlign = 'center';
+            cafeCtx.fillText("BRIDGING PROPOSAL", bx, by - 12);
+            cafeCtx.font = '11px Segoe UI';
+            cafeCtx.fillStyle = '#6B6560';
+            cafeCtx.fillText("Phased Transition + EU Backstop", bx, by + 5);
+            cafeCtx.fillText("+ Mutual Security Guarantees", bx, by + 20);
+        }
+
+        // Phase 4: Agonistic labels
+        if (cafePhase === 4) {
+            cafeCtx.font = '11px Segoe UI';
+            cafeCtx.fillStyle = 'rgba(46, 107, 138, 0.8)';
+            cafeCtx.textAlign = 'center';
+            cafeCtx.fillText("GC Cluster", cafeW / 2 - 70, cafeH / 2 + 65);
+            cafeCtx.fillStyle = 'rgba(184, 115, 51, 0.8)';
+            cafeCtx.fillText("TC Cluster", cafeW / 2 + 70, cafeH / 2 + 65);
+
+            // Agonistic bridge line
+            cafeCtx.beginPath();
+            cafeCtx.moveTo(cafeW / 2 - 30, cafeH / 2 + 55);
+            cafeCtx.lineTo(cafeW / 2 + 30, cafeH / 2 + 55);
+            cafeCtx.strokeStyle = 'rgba(112, 130, 56, 0.6)';
+            cafeCtx.lineWidth = 2;
+            cafeCtx.setLineDash([3, 3]);
+            cafeCtx.stroke();
+            cafeCtx.setLineDash([]);
+
+            cafeCtx.fillStyle = 'rgba(112, 130, 56, 0.7)';
+            cafeCtx.font = '10px Segoe UI';
+            cafeCtx.fillText("agonistic bridge", cafeW / 2, cafeH / 2 + 80);
+        }
+
+        // Draw and update nodes
+        cafeNodes.forEach(node => {
+            node.x += (node.tx - node.x) * node.speed;
+            node.y += (node.ty - node.y) * node.speed;
+
+            // Expert fade-out in phase 3+
+            if (node.type === 'expert' && cafePhase >= 3) {
+                node.alpha = Math.max(0, node.alpha - 0.008);
+            }
+
+            if (node.alpha > 0.01) {
+                cafeCtx.globalAlpha = node.alpha;
+                cafeCtx.beginPath();
+                cafeCtx.arc(node.x, node.y, 5, 0, Math.PI * 2);
+
+                if (node.type === 'gc') cafeCtx.fillStyle = '#2E6B8A';
+                else if (node.type === 'tc') cafeCtx.fillStyle = '#B87333';
+                else cafeCtx.fillStyle = '#708238';
+
+                cafeCtx.fill();
+
+                // Subtle stroke
+                cafeCtx.strokeStyle = 'rgba(255,255,255,0.3)';
+                cafeCtx.lineWidth = 1;
+                cafeCtx.stroke();
+
+                cafeCtx.globalAlpha = 1.0;
+            }
+        });
+
+        cafeAnimId = requestAnimationFrame(animateCafe);
+    }
+
+    function roundRect(ctx, x, y, w, h, r) {
+        ctx.beginPath();
+        ctx.moveTo(x + r, y);
+        ctx.lineTo(x + w - r, y);
+        ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+        ctx.lineTo(x + w, y + h - r);
+        ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+        ctx.lineTo(x + r, y + h);
+        ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+        ctx.lineTo(x, y + r);
+        ctx.quadraticCurveTo(x, y, x + r, y);
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+    }
+
+    // ========== RESIZE HANDLER ==========
+    let resizeTimeout;
+    window.addEventListener('resize', function() {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(function() {
+            const activeSection = document.querySelector('.section.active');
+            if (activeSection && activeSection.id === 'landscape') initLandscape();
+            if (activeSection && activeSection.id === 'world-cafe') initCafe();
+        }, 250);
+    });
+
+    // ========== INIT ==========
+    renderTimeline();
+    renderIssueTabs();
+    renderConvergences();
+
+})();
+</script>
+
+</body>
+</html>
